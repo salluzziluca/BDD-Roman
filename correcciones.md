@@ -1,0 +1,7 @@
+Nota Final: 5 --------- 
+Ejer A Nota: Bien Menos Observaciones: Recordá que durante el parcial va a afectar la nota devolver columnas distintas a las pedidas ----- 
+Ejer B Nota: Mal Observaciones: Estas podiendo que tenga al menos una de esas dos materias y el ejer pide que tenga las dos. Una forma seria joiner dos veces notas para evaluar en cada join (n1 y n2) las dos condiciones. La condicion del not in esta bien porque si tiene al menos una ya no tenes que traer ese padron ----- 
+Ejer C Nota: Bien Menos Observaciones: No es necesario incluir la tabla Alumnos en la query ----- 
+Ejer D Nota: Mal Observaciones: Hay un select * from notas; eso no deberia estar en el sql. El with es para reutilizar o para recursividad. aca no estas haciendo ninguna. Practica el grpup by y having, porque esto es un simple join de alumnos y notas. luego agrupando por lo pedidio y ponindo las condiciones en el having ----- 
+Ejer E Nota: Bien Observaciones: Perfecto ----- 
+Ejer F Nota: Mal Observaciones: No estas trayendo los alumnos que tengan todas las materias del 83000 sino que tengan al menos una de sus materias Si agregas el alumno 90000 que tienen 1 sola materia aprobada (71.12) que es una de las materias del 83000. Tu query lo esta trayendo (el alumno 9000), eso esta mal porque no son TODAS las materias del alumno 83000 sino 1 sola Fijate de practicar la division.

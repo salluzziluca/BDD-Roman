@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Reseñas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .review-item {
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+
+        .positive {
+            color: green;
+        }
+
+        .negative {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Gestor de Reseñas</h1>
+
+    <h2>Agregar nueva reseña</h2>
+    <input type="text" id="review-text" placeholder="Ingrese la reseña">
+    <button onclick="addReview()">Agregar Reseña</button>
+
+    <h2>Reseñas</h2>
+    <div id="reviews-list"></div>
+
+    <h3>Resumen</h3>
+    <p>Reseñas Positivas: <span id="positive-count">0</span></p>
+    <p>Reseñas Negativas: <span id="negative-count">0</span></p>
+
+    <script>
+        const reviews = [];
+
+        function addReview() {
+            const reviewText = document.getElementById('review-text').value.trim();
+            if (reviewText === '') {
+                alert('Por favor ingrese una reseña.');
+                return;
+            }
+
+            const isPositive = confirm('¿Es una reseña positiva?');
+            const review = {
+                text: reviewText,
+                isPositive: isPositive
+            };
+            reviews.push(review);
+            document.getElementById('review-text').value = '';
+
+            updateReviews();
+        }
+
+        function updateReviews() {
+            const reviewsList = document.getElementById('reviews-list');
+            reviewsList.innerHTML = '';
+
+            let positiveCount = 0;
+            let negativeCount = 0;
+
+            reviews.forEach(review => {
+                const reviewItem = document.createElement('div');
+                reviewItem.className = 'review-item';
+                reviewItem.textContent = review.text;
+                reviewItem.classList.add(review.isPositive ? 'positive' : 'negative');
+
+                if (review.isPositive) {
+                    positiveCount++;
+                } else {
+                    negativeCount++;
+                }
+
+                reviewsList.appendChild(reviewItem);
+            });
+
+            document.getElementById('positive-count').textContent = positiveCount;
+            document.getElementById('negative-count').textContent = negativeCount;
+        }
+    </script>
+</body>
+
+</html>
